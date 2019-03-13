@@ -1253,6 +1253,13 @@ void LoadBallGfx(u8 ballId)
     case BALL_DIVE:
     case BALL_LUXURY:
     case BALL_PREMIER:
+    case BALL_GREAT:
+    case BALL_ULTRA:
+    case BALL_SAFARI:
+    case BALL_TIMER:
+    case BALL_NEST:
+    case BALL_NET:
+    case BALL_REPEAT:
         break;
     default:
         var = GetSpriteTileStartByTag(gBallSpriteSheets[ballId].tag);
