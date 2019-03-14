@@ -355,6 +355,8 @@ struct BattleMove
 #define FLAG_SNATCH_AFFECTED        0x8
 #define FLAG_MIRROR_MOVE_AFFECTED   0x10
 #define FLAG_KINGSROCK_AFFECTED     0x20
+#define EVO_MAP_GROUP(map) (map >> 8) 
+#define EVO_MAP_NUM(map) (map & 0xFF)
 
 struct SpindaSpot
 {
@@ -398,7 +400,7 @@ enum
 #define EVO_LEVEL            0x0004 // Pokémon reaches the specified level
 #define EVO_TRADE            0x0005 // Pokémon is traded
 #define EVO_TRADE_ITEM       0x0006 // Pokémon is traded while it's holding the specified item
-#define EVO_ITEM             0x0007 // specified item is used on Pokémon
+#define EVO_ITEM             0x0007 // Specified item is used on Pokémon
 #define EVO_LEVEL_ATK_GT_DEF 0x0008 // Pokémon reaches the specified level with attack > defense
 #define EVO_LEVEL_ATK_EQ_DEF 0x0009 // Pokémon reaches the specified level with attack = defense
 #define EVO_LEVEL_ATK_LT_DEF 0x000a // Pokémon reaches the specified level with attack < defense
@@ -413,6 +415,9 @@ enum
 #define EVO_MAP              0x0013 // Pokémon levels up in a certain area
 #define EVO_DAY              0x0014 // Pokémon levels up during day time
 #define EVO_NIGHT            0x0015 // Pokémon levels up during night time
+#define EVO_SPECIES          0x0016 // Pokémon levels up with a certain mon
+#define EVO_ITEM_MALE        0x0017 // Specific item is used on a Male Pokémon
+#define EVO_ITEM_FEMALE      0x0018 // Specific item is used on a Female Pokémon
 
 struct Evolution
 {
