@@ -12,6 +12,9 @@ const u8 gRepeatBallItemDescription[] = _("A BALL that works\nbetter on POKéMON
 const u8 gTimerBallItemDescription[] = _("A BALL that gains\npower in battles\ntaking many turns.");
 const u8 gLuxuryBallItemDescription[] = _("A cozy BALL that\nmakes POKéMON\nmore friendly.");
 const u8 gPremierBallItemDescription[] = _("A rare BALL made\nin commemoration\nof some event.");
+const u8 gCherishBallItemDescription[] = _("A rare Ball made\nin commemoration\nof some event.");
+const u8 gDuskBallItemDescription[] = _("A Ball that works\nwell during Night\nor dark places\nlike caves.");
+
 // Medicine
 const u8 gPotionItemDescription[] = _("Restores the HP of\na POKéMON by\n20 points.");
 const u8 gAntidoteItemDescription[] = _("Heals a poisoned\nPOKéMON.");

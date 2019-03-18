@@ -235,12 +235,48 @@ const struct Item gItems[] =
         .battleUseFunc = ItemUseInBattle_PokeBall,
         .secondaryId = 11,
     },
+        [ITEM_CHERISH_BALL] =
+    {
+        .name = _("Cherish Ball"),
+        .itemId = ITEM_CHERISH_BALL,
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 0,
+        .description = gCherishBallItemDescription,
+        .importance = 0,
+        .unk19 = 0,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 12,
+        .fieldUseFunc = ItemUseInBattle_PokeBall,
+        .battleUsage = 2,
+        .battleUseFunc = NULL,
+        .secondaryId = 12,
+    },
+
+    [ITEM_DUSK_BALL] =
+    {
+        .name = _("Dusk Ball"),
+        .itemId = ITEM_DUSK_BALL,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_NONE,
+        .holdEffectParam = 0,
+        .description = gDuskBallItemDescription,
+        .importance = 0,
+        .unk19 = 0,
+        .pocket = POCKET_POKE_BALLS,
+        .type = 13,
+        .fieldUseFunc = ItemUseInBattle_PokeBall,
+        .battleUsage = 2,
+        .battleUseFunc = NULL,
+        .secondaryId = 13,
+    },
+   
 
 // Medicine
 
     [ITEM_POTION] =
     {
-        .name = _("POTION"),
+        .name = _("Potion"),
         .itemId = ITEM_POTION,
         .price = 300,
         .holdEffect = HOLD_EFFECT_NONE,
@@ -941,7 +977,6 @@ const struct Item gItems[] =
         .battleUseFunc = NULL,
         .secondaryId = 0,
     },
-
     [ITEM_034] =
     {
         .name = _("????????"),

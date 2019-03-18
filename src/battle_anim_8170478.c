@@ -117,6 +117,8 @@ const struct CompressedSpriteSheet gBallOpenParticleSpritesheets[] =
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F5},
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F6},
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F7},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F8},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F9},
 };
 
 const struct CompressedSpritePalette gBallOpenParticlePalettes[] =
@@ -133,6 +135,8 @@ const struct CompressedSpritePalette gBallOpenParticlePalettes[] =
     {gBattleAnimSpritePalette_136, 0xD6F5},
     {gBattleAnimSpritePalette_136, 0xD6F6},
     {gBattleAnimSpritePalette_136, 0xD6F7},
+    {gBattleAnimSpritePalette_136, 0xD6F8},
+    {gBattleAnimSpritePalette_136, 0xD6F9},
 };
 
 const union AnimCmd gUnknown_085E5154[] =
@@ -201,6 +205,8 @@ const u8 gBallOpenParticleAnimNums[] =
     5,
     4,
     4,
+    3,
+    5,
 };
 
 const TaskFunc gBallOpenParticleAnimationFuncs[] =
@@ -217,6 +223,8 @@ const TaskFunc gBallOpenParticleAnimationFuncs[] =
     TimerBallOpenParticleAnimation,
     GreatBallOpenParticleAnimation,
     PremierBallOpenParticleAnimation,
+    UltraBallOpenParticleAnimation,
+    GreatBallOpenParticleAnimation,
 };
 
 const struct SpriteTemplate gUnknown_085E51F0[] =
@@ -323,6 +331,24 @@ const struct SpriteTemplate gUnknown_085E51F0[] =
     {
         .tileTag = 55031,
         .paletteTag = 55031,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55032,
+        .paletteTag = 55032,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55033,
+        .paletteTag = 55033,
         .oam = &gUnknown_08524904,
         .anims = gUnknown_085E519C,
         .images = NULL,
@@ -708,9 +734,14 @@ u8 ItemIdToBallId(u16 ballItem)
         return 10;
     case ITEM_PREMIER_BALL:
         return 11;
+    case ITEM_CHERISH_BALL:
+        return 12;
+    case ITEM_DUSK_BALL:
+        return 13;        
     case ITEM_POKE_BALL:
-    default:
         return 0;
+    default:
+       return (u8)ballItem - 1;    
     }
 }
 
@@ -826,12 +857,7 @@ static void sub_8171134(struct Sprite *sprite)
             sprite->data[5] = 0;
             sprite->callback = sub_81711E8;
             ballId = ItemIdToBallId(gLastUsedItem);
-            ballId2 = ballId;
-            if (ballId2 > 11)
-                return;
-            if (ballId2 < 0)
-                return;
-
+            
             AnimateBallOpenParticles(sprite->pos1.x, sprite->pos1.y - 5, 1, 28, ballId);
             LaunchBallFadeMonTask(0, gBattleAnimTarget, 14, ballId);
         }
@@ -1293,15 +1319,11 @@ static void sub_8171AE4(struct Sprite *sprite)
 
     ballId = ItemIdToBallId(gLastUsedItem);
     ballId2 = ballId;
-    if (ballId2 > 11)
-        goto LABEL;
-    if (ballId2 < 0)
-        goto LABEL;
-
+   
     AnimateBallOpenParticles(sprite->pos1.x, sprite->pos1.y - 5, 1, 28, ballId);
     LaunchBallFadeMonTask(1, gBattleAnimTarget, 14, ballId);
 
-    LABEL:
+    
     gSprites[gBattlerSpriteIds[gBattleAnimTarget]].invisible = 0;
     StartSpriteAffineAnim(&gSprites[gBattlerSpriteIds[gBattleAnimTarget]], 1);
     AnimateSprite(&gSprites[gBattlerSpriteIds[gBattleAnimTarget]]);

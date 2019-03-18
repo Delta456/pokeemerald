@@ -14,6 +14,9 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_TIMER_BALL] = {gItemIcon_TimerBall, gItemIconPalette_RepeatBall},
     [ITEM_LUXURY_BALL] = {gItemIcon_LuxuryBall, gItemIconPalette_LuxuryBall},
     [ITEM_PREMIER_BALL] = {gItemIcon_PremierBall, gItemIconPalette_LuxuryBall},
+    [ITEM_CHERISH_BALL] = {gItemIcon_CherishBall,gItemIconPalette_CherishBall},
+    [ITEM_DUSK_BALL] = {gItemIcon_DuskBall,gItemIconPalette_DuskBall},
+    
     // Medicine
     [ITEM_POTION] = {gItemIcon_Potion, gItemIconPalette_Potion},
     [ITEM_ANTIDOTE] = {gItemIcon_Antidote, gItemIconPalette_Antidote},

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "battle.h"
+#include "battle_anim.h"
 #include "battle_ai_script_commands.h"
 #include "battle_arena.h"
 #include "battle_controllers.h"
@@ -5546,9 +5547,16 @@ static void HandleAction_UseItem(void)
     ClearFuryCutterDestinyBondGrudge(gBattlerAttacker);
     gLastUsedItem = gBattleBufferB[gBattlerAttacker][1] | (gBattleBufferB[gBattlerAttacker][2] << 8);
 
-    if (gLastUsedItem <= ITEM_PREMIER_BALL) // is ball
+    if (ItemId_GetPocket(gLastUsedItem) == 2) // is ball
     {
-        gBattlescriptCurrInstr = gBattlescriptsForBallThrow[gLastUsedItem];
+         if (gLastUsedItem > ITEM_PREMIER_BALL)
+		{
+			gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ItemIdToBallId(gLastUsedItem)];
+		}
+		else
+		{
+			gBattlescriptCurrInstr = gBattlescriptsForBallThrow[gLastUsedItem];
+		}
     }
     else if (gLastUsedItem == ITEM_POKE_DOLL || gLastUsedItem == ITEM_FLUFFY_TAIL)
     {

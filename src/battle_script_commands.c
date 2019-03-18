@@ -49,6 +49,7 @@
 #include "field_specials.h"
 #include "pokemon_summary_screen.h"
 #include "pokenav.h"
+#include "rtc.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 
@@ -10133,7 +10134,7 @@ static void atkEF_handleballthrow(void)
             {
             case ITEM_NET_BALL:
                 if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_BUG))
-                    ballMultiplier = 30;
+                    ballMultiplier = 35;
                 else
                     ballMultiplier = 10;
                 break;
@@ -10144,9 +10145,9 @@ static void atkEF_handleballthrow(void)
                     ballMultiplier = 10;
                 break;
             case ITEM_NEST_BALL:
-                if (gBattleMons[gBattlerTarget].level < 40)
+                if (gBattleMons[gBattlerTarget].level < 41)
                 {
-                    ballMultiplier = 40 - gBattleMons[gBattlerTarget].level;
+                    ballMultiplier = 41 - gBattleMons[gBattlerTarget].level;
                     if (ballMultiplier <= 9)
                         ballMultiplier = 10;
                 }
@@ -10166,8 +10167,14 @@ static void atkEF_handleballthrow(void)
                 if (ballMultiplier > 40)
                     ballMultiplier = 40;
                 break;
+            case ITEM_DUSK_BALL:
+                 RtcCalcLocalTime();
+                if((GetCurrentMapType() == MAP_TYPE_UNDERGROUND) || (gLocalTime.hours >= 0 && gLocalTime.hours < 12))
+                   ballMultiplier = 30;
+                break;       
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
+            case ITEM_CHERISH_BALL:
                 ballMultiplier = 10;
                 break;
             }
