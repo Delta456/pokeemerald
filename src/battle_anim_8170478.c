@@ -357,6 +357,7 @@ const struct SpriteTemplate gUnknown_085E51F0[] =
     },
 };
 
+// Color blended with Mon released
 const u16 gUnknown_085E5310[] =
 {
     RGB(31, 22, 30),
@@ -371,6 +372,8 @@ const u16 gUnknown_085E5310[] =
     RGB(29, 30, 30),
     RGB(31, 17, 10),
     RGB(31, 9, 10),
+    RGB(31, 15 , 8),
+    RGB(39, 10 , 5),
     RGB(0, 0, 0),
     RGB(1, 16, 0),
     RGB(3, 0, 1),
@@ -733,11 +736,7 @@ u8 ItemIdToBallId(u16 ballItem)
     case ITEM_LUXURY_BALL:
         return 10;
     case ITEM_PREMIER_BALL:
-        return 11;
-    case ITEM_CHERISH_BALL:
-        return 12;
-    case ITEM_DUSK_BALL:
-        return 13;        
+        return 11;    
     case ITEM_POKE_BALL:
         return 0;
     default:
@@ -857,6 +856,7 @@ static void sub_8171134(struct Sprite *sprite)
             sprite->data[5] = 0;
             sprite->callback = sub_81711E8;
             ballId = ItemIdToBallId(gLastUsedItem);
+            ballId2 = ballId; 
             
             AnimateBallOpenParticles(sprite->pos1.x, sprite->pos1.y - 5, 1, 28, ballId);
             LaunchBallFadeMonTask(0, gBattleAnimTarget, 14, ballId);
