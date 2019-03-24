@@ -23,6 +23,7 @@
 #include "constants/map_types.h"
 #include "text.h"
 #include "sound.h"
+#include "rtc.h"
 #include "pokedex.h"
 #include "recorded_battle.h"
 #include "window.h"
@@ -49,11 +50,7 @@
 #include "field_specials.h"
 #include "pokemon_summary_screen.h"
 #include "pokenav.h"
-<<<<<<< HEAD
-#include "rtc.h"
-=======
 #include "menu_specialized.h"
->>>>>>> master
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 
