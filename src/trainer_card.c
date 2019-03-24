@@ -499,43 +499,43 @@ static bool8 LoadCardGfx(void)
     {
     case 0:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(gUnknown_08DD1F78, sData->var_EF8);
+            LZ77UnCompWram(gUnknown_08DD2AE0, sData->var_EF8); //gUnknown_08DD1F78
         else
-            LZ77UnCompWram(gUnknown_08DD2AE0, sData->var_EF8);
+            LZ77UnCompWram(gUnknown_08DD1F78, sData->var_EF8);
         break;
     case 1:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(gUnknown_08DD21B0, sData->var_A48);
+            LZ77UnCompWram(gUnknown_08DD2D30, sData->var_A48); //gUnknown_08DD21B0
         else
-            LZ77UnCompWram(gUnknown_08DD2D30, sData->var_A48);
+            LZ77UnCompWram(gUnknown_08DD21B0, sData->var_A48);
         break;
     case 2:
         if (!sData->isLink)
         {
             if (sData->cardType != CARD_TYPE_FRLG)
-                LZ77UnCompWram(gUnknown_08DD2010, sData->var_598);
+                LZ77UnCompWram(gUnknown_08DD2B78, sData->var_598); //gUnknown_08DD2010
             else
-                LZ77UnCompWram(gUnknown_08DD2B78, sData->var_598);
+                LZ77UnCompWram(gUnknown_08DD2010, sData->var_598);
         }
         else
         {
             if (sData->cardType != CARD_TYPE_FRLG)
-                LZ77UnCompWram(gUnknown_08DD228C, sData->var_598);
+                LZ77UnCompWram(gUnknown_08DD2E5C, sData->var_598); //gUnknown_08DD228C
             else
-                LZ77UnCompWram(gUnknown_08DD2E5C, sData->var_598);
+                LZ77UnCompWram(gUnknown_08DD228C, sData->var_598);
         }
         break;
     case 3:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(gUnknown_0856F5CC, sData->var_13A8);
+            LZ77UnCompWram(gUnknown_0856F814, sData->var_13A8); //gUnknown_0856F5CC
         else
-            LZ77UnCompWram(gUnknown_0856F814, sData->var_13A8);
+            LZ77UnCompWram(gUnknown_0856F5CC, sData->var_13A8);
         break;
     case 4:
         if (sData->cardType != CARD_TYPE_FRLG)
-            LZ77UnCompWram(gEmeraldTrainerCard_Gfx, sData->var_19A8);
-        else
             LZ77UnCompWram(gFireRedTrainerCard_Gfx, sData->var_19A8);
+        else
+            LZ77UnCompWram(gEmeraldTrainerCard_Gfx, sData->var_19A8);
         break;
     case 5:
         if (sData->cardType == CARD_TYPE_FRLG)
@@ -971,10 +971,10 @@ static void PrintNameOnCard(void)
     txtPtr = StringCopy(buffer, gText_TrainerCardName);
     StringCopy(txtPtr, sData->trainerCard.playerName);
     ConvertInternationalString(txtPtr, sData->language);
-    if (sData->cardType == CARD_TYPE_FRLG)
-        AddTextPrinterParameterized3(1, 1, 20, 28, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);
+    if (sData->cardType != CARD_TYPE_FRLG)
+        AddTextPrinterParameterized3(1, 1, 20, 34, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);
     else
-        AddTextPrinterParameterized3(1, 1, 16, 33, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);
+        AddTextPrinterParameterized3(1, 1, 16, 28, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);
 }
 
 static void PrintIdOnCard(void)
@@ -985,7 +985,7 @@ static void PrintIdOnCard(void)
     u32 top;
     txtPtr = StringCopy(buffer, gText_TrainerCardIDNo);
     ConvertIntToDecimalStringN(txtPtr, sData->trainerCard.trainerId, STR_CONV_MODE_LEADING_ZEROS, 5);
-    if (sData->cardType == CARD_TYPE_FRLG)
+    if (sData->cardType != CARD_TYPE_FRLG)
     {
         xPos = GetStringCenterAlignXOffset(1, buffer, 80) + 132;
         top = 9;
@@ -1005,21 +1005,21 @@ static void PrintMoneyOnCard(void)
     u8 top;
 
     if (!sData->isHoenn)
-        AddTextPrinterParameterized3(1, 1, 20, 56, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardMoney);
-    else
         AddTextPrinterParameterized3(1, 1, 16, 57, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardMoney);
+    else
+        AddTextPrinterParameterized3(1, 1, 20, 56, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardMoney);
 
     ConvertIntToDecimalStringN(gStringVar1, sData->trainerCard.money, 0, 7);
     StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
     if (!sData->isHoenn)
     {
         xOffset = GetStringRightAlignXOffset(1, gStringVar4, 144);
-        top = 56;
+        top = 57;
     }
     else
     {
         xOffset = GetStringRightAlignXOffset(1, gStringVar4, 128);
-        top = 57;
+        top = 56;
     }
     AddTextPrinterParameterized3(1, 1, xOffset, top, gUnknown_0856FB0C, TEXT_SPEED_FF, gStringVar4);
 }
@@ -1039,19 +1039,19 @@ static void PrintPokedexOnCard(void)
     if (FlagGet(FLAG_SYS_POKEDEX_GET))
     {
         if (!sData->isHoenn)
-            AddTextPrinterParameterized3(1, 1, 20, 72, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardPokedex);
-        else
             AddTextPrinterParameterized3(1, 1, 16, 73, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardPokedex);
+        else
+            AddTextPrinterParameterized3(1, 1, 20, 72, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardPokedex);
         StringCopy(ConvertIntToDecimalStringN(gStringVar4, sData->trainerCard.caughtMonsCount, 0, 3), gText_EmptyString6);
         if (!sData->isHoenn)
         {
             xOffset = GetStringRightAlignXOffset(1, gStringVar4, 144);
-            top = 72;
+            top = 73;
         }
         else
         {
             xOffset = GetStringRightAlignXOffset(1, gStringVar4, 128);
-            top = 73;
+            top = 72;
         }
         AddTextPrinterParameterized3(1, 1, xOffset, top, gUnknown_0856FB0C, TEXT_SPEED_FF, gStringVar4);
     }
@@ -1066,7 +1066,7 @@ static void PrintTimeOnCard(void)
     s32 width;
     u32 r7, r4, r10;
 
-    if (!sData->isHoenn)
+    if (sData->isHoenn)
         AddTextPrinterParameterized3(1, 1, 20, 88, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardTime);
     else
         AddTextPrinterParameterized3(1, 1, 16, 89, gUnknown_0856FB0C, TEXT_SPEED_FF, gText_TrainerCardTime);
@@ -1129,7 +1129,7 @@ static void PrintNameOnCard2(void)
 {
     StringCopy(sData->var_4D, sData->trainerCard.playerName);
     ConvertInternationalString(sData->var_4D, sData->language);
-    if (sData->cardType != CARD_TYPE_FRLG)
+    if (sData->cardType == CARD_TYPE_FRLG)
     {
         StringCopy(gStringVar1, sData->var_4D);
         StringExpandPlaceholders(sData->var_4D, gText_Var1sTrainerCard);
@@ -1388,7 +1388,7 @@ static u8 SetCardBgsAndPals(void)
         LoadBgTiles(0, sData->var_19A8, 6144, 0);
         break;
     case 2:
-        if (sData->cardType != CARD_TYPE_FRLG)
+        if (sData->cardType == CARD_TYPE_FRLG)
         {
             LoadPalette(gEmeraldTrainerCardStarPals[sData->trainerCard.stars], 0, 96);
             LoadPalette(gUnknown_0856F4EC, 48, 32);
