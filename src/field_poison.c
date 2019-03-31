@@ -116,6 +116,7 @@ void ExecuteWhiteOut(void)
 
 s32 DoPoisonFieldEffect(void)
 {
+    u32 numSurvived = 0;
     int i;
     u32 hp;
     struct Pokemon *pokemon = gPlayerParty;
@@ -126,9 +127,10 @@ s32 DoPoisonFieldEffect(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && pokemon_ailments_get_primary(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
             hp = GetMonData(pokemon, MON_DATA_HP);
-            if (hp == 0 || --hp == 0)
-            {
-                numFainted++;
+            if (hp == 1 || --hp == 1) { 
+         	u32 status = STATUS1_NONE;
+	        SetMonData(pokemon, MON_DATA_STATUS, &status);
+	        numSurvived++;
             }
             SetMonData(pokemon, MON_DATA_HP, &hp);
             numPoisoned++;
@@ -144,6 +146,11 @@ s32 DoPoisonFieldEffect(void)
         return FLDPSN_FNT;
     }
     if (numPoisoned != 0)
+    {
+        return FLDPSN_PSN;
+    }
+
+    if (numSurvived != 0)
     {
         return FLDPSN_PSN;
     }

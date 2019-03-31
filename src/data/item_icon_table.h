@@ -15,8 +15,17 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_LUXURY_BALL] = {gItemIcon_LuxuryBall, gItemIconPalette_LuxuryBall},
     [ITEM_PREMIER_BALL] = {gItemIcon_PremierBall, gItemIconPalette_LuxuryBall},
     [ITEM_CHERISH_BALL] = {gItemIcon_CherishBall,gItemIconPalette_CherishBall},
-    [ITEM_DUSK_BALL] = {gItemIcon_DuskBall,gItemIconPalette_DuskBall},
-    
+    [ITEM_DUSK_BALL] = {gItemIcon_DuskBall, gItemIconPalette_DuskBall},
+    [ITEM_LEVEL_BALL] = {gItemIcon_LevelBall, gItemIconPalette_LevelBall},
+    [ITEM_LURE_BALL] = {gItemIcon_LureBall, gItemIconPalette_LureBall},
+    [ITEM_HEAL_BALL] = {gItemIcon_HealBall, gItemIconPalette_HealBall},
+    [ITEM_FAST_BALL] = {gItemIcon_FastBall, gItemIconPalette_FastBall},
+    [ITEM_QUICK_BALL] = {gItemIcon_QuickBall,gItemIconPalette_QuickBall},
+    [ITEM_MOON_BALL] = {gItemIcon_MoonBall, gItemIconPalette_MoonBall},
+    [ITEM_HEAVY_BALL] = {gItemIcon_HeavyBall, gItemIconPalette_HeavyBall},
+    [ITEM_LOVE_BALL] = {gItemIcon_LoveBall, gItemIconPalette_LoveBall},
+    [ITEM_FRIEND_BALL] = {gItemIcon_FriendBall, gItemIconPalette_FriendBall},
+
     // Medicine
     [ITEM_POTION] = {gItemIcon_Potion, gItemIconPalette_Potion},
     [ITEM_ANTIDOTE] = {gItemIcon_Antidote, gItemIconPalette_Antidote},

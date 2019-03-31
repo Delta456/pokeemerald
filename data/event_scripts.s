@@ -7141,3 +7141,8 @@ gText_082C877B:: @ 82C877B
 	.align 2
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+EventScript_PoisonSurvial::
+	msgbox Text_PoisonSurvial, MSGBOX_SIGN
+Text_PoisonSurvial:
+	.string "Poison survived with 1hp…$"

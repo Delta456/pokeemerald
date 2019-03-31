@@ -34,6 +34,24 @@ extern const u32 gInterfaceGfx_CherishBall[];
 extern const u32 gInterfacePal_CherishBall[];
 extern const u32 gInterfaceGfx_DuskBall[];
 extern const u32 gInterfacePal_DuskBall[];
+extern const u32 gInterfaceGfx_LureBall[];
+extern const u32 gInterfacePal_LureBall[];
+extern const u32 gInterfaceGfx_LevelBall[];
+extern const u32 gInterfacePal_LevelBall[];
+extern const u32 gInterfaceGfx_FastBall[];
+extern const u32 gInterfacePal_FastBall[];
+extern const u32 gInterfaceGfx_QuickBall[];
+extern const u32 gInterfacePal_QuickBall[];
+extern const u32 gInterfaceGfx_MoonBall[];
+extern const u32 gInterfacePal_MoonBall[];
+extern const u32 gInterfaceGfx_LoveBall[];
+extern const u32 gInterfacePal_LoveBall[];
+extern const u32 gInterfaceGfx_HealBall[];
+extern const u32 gInterfacePal_HealBall[];
+extern const u32 gInterfaceGfx_HeavyBall[];
+extern const u32 gInterfacePal_HeavyBall[];
+extern const u32 gInterfaceGfx_FriendBall[];
+extern const u32 gInterfacePal_FriendBall[];
 
 extern const u32 gOpenPokeballGfx[];
 
@@ -3394,7 +3412,24 @@ extern const u32 gItemIcon_CherishBall[];
 extern const u32 gItemIconPalette_CherishBall[];
 extern const u32 gItemIcon_DuskBall[];
 extern const u32 gItemIconPalette_DuskBall[];
-
+extern const u32 gItemIcon_MoonBall[];
+extern const u32 gItemIconPalette_MoonBall[];
+extern const u32 gItemIcon_HealBall[];
+extern const u32 gItemIconPalette_HealBall[];
+extern const u32 gItemIcon_QuickBall[];
+extern const u32 gItemIconPalette_QuickBall[];
+extern const u32 gItemIcon_FastBall[];
+extern const u32 gItemIconPalette_FastBall[];
+extern const u32 gItemIcon_LoveBall[];
+extern const u32 gItemIconPalette_LoveBall[];
+extern const u32 gItemIcon_FriendBall[];
+extern const u32 gItemIconPalette_FriendBall[];
+extern const u32 gItemIcon_LureBall[];
+extern const u32 gItemIconPalette_LureBall[];
+extern const u32 gItemIcon_LevelBall[];
+extern const u32 gItemIconPalette_LevelBall[];
+extern const u32 gItemIcon_HeavyBall[];
+extern const u32 gItemIconPalette_HeavyBall[];
 
 // Medicine
 extern const u32 gItemIcon_Potion[];

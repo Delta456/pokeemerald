@@ -971,7 +971,7 @@ static void PrintNameOnCard(void)
     txtPtr = StringCopy(buffer, gText_TrainerCardName);
     StringCopy(txtPtr, sData->trainerCard.playerName);
     ConvertInternationalString(txtPtr, sData->language);
-    if (sData->cardType != CARD_TYPE_FRLG)
+    if (sData->cardType == CARD_TYPE_FRLG)
         AddTextPrinterParameterized3(1, 1, 20, 34, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);
     else
         AddTextPrinterParameterized3(1, 1, 16, 28, gUnknown_0856FB0C, TEXT_SPEED_FF, buffer);

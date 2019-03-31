@@ -10097,6 +10097,8 @@ static void atkEE_removelightscreenreflect(void) // brick break
 static void atkEF_handleballthrow(void)
 {
     u8 ballMultiplier = 0;
+    u16 speciesAttacker, speciesTarget;
+    u32 personalityAttacker, personalityTarget;
 
     if (gBattleControllerExecFlags)
         return;
@@ -10169,10 +10171,47 @@ static void atkEF_handleballthrow(void)
                  RtcCalcLocalTime();
                 if((GetCurrentMapType() == MAP_TYPE_UNDERGROUND) || (gLocalTime.hours >= 0 && gLocalTime.hours < 12))
                    ballMultiplier = 30;
-                break;       
+                break;
+            case ITEM_LEVEL_BALL:
+                if((gBattleMons[gBattlerAttacker].level) >= 4*(gBattleMons[gBattlerTarget].level))
+                    ballMultiplier = 80;
+                else if((gBattleMons[gBattlerAttacker].level) >= 2*(gBattleMons[gBattlerTarget].level))
+                    ballMultiplier = 40;
+                else if((gBattleMons[gBattlerAttacker].level) > (gBattleMons[gBattlerTarget].level))
+                    ballMultiplier = 20;
+                else
+                    ballMultiplier = 10;
+            case ITEM_MOON_BALL:
+                if((gBattleMons[gBattlerTarget].species == SPECIES_NIDORAN_F) || (gBattleMons[gBattlerTarget].species == SPECIES_NIDORAN_M) || 
+                (gBattleMons[gBattlerTarget].species == SPECIES_NIDORINA) || (gBattleMons[gBattlerTarget].species == SPECIES_NIDORINO) ||
+                (gBattleMons[gBattlerTarget].species == SPECIES_NIDOKING) || (gBattleMons[gBattlerTarget].species == SPECIES_NIDOKING) ||
+                (gBattleMons[gBattlerTarget].species == SPECIES_CLEFAIRY) || (gBattleMons[gBattlerTarget].species == SPECIES_CLEFABLE) ||
+                (gBattleMons[gBattlerTarget].species == SPECIES_SKITTY) || (gBattleMons[gBattlerTarget].species == SPECIES_DELCATTY))
+                  ballMultiplier = 40;
+                else
+                  ballMultiplier = 10; 
+            case ITEM_LOVE_BALL:
+               if((gBattleMons[gBattlerAttacker].species == gBattleMons[gBattlerTarget].species) && (GetGenderFromSpeciesAndPersonality(speciesAttacker, personalityAttacker) != 
+               (GetGenderFromSpeciesAndPersonality(speciesTarget, personalityTarget))))
+                   ballMultiplier = 80;
+               else
+                   ballMultiplier = 10;
+            case ITEM_FAST_BALL:
+                if(gBattleMons[gBattlerTarget].speed >= 100)
+                    ballMultiplier = 40;
+                else
+                    ballMultiplier = 10;
+            case ITEM_QUICK_BALL:
+                if(gDisableStructs[gActiveBattler].isFirstTurn == 1)
+                    ballMultiplier = 50;
+                else
+                    ballMultiplier = 10;                      
+            case ITEM_HEAVY_BALL:                 
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
             case ITEM_CHERISH_BALL:
+            case ITEM_HEAL_BALL:
+            case ITEM_FRIEND_BALL:
                 ballMultiplier = 10;
                 break;
             }

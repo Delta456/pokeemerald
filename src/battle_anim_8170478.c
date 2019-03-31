@@ -119,6 +119,16 @@ const struct CompressedSpriteSheet gBallOpenParticleSpritesheets[] =
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F7},
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F8},
     {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6F9},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FA},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FB},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FC},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FD},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FE},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD6FF},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD700},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD701},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD702},
+    {gBattleAnimSpriteSheet_Particles, 0x100, 0xD703},
 };
 
 const struct CompressedSpritePalette gBallOpenParticlePalettes[] =
@@ -137,6 +147,16 @@ const struct CompressedSpritePalette gBallOpenParticlePalettes[] =
     {gBattleAnimSpritePalette_136, 0xD6F7},
     {gBattleAnimSpritePalette_136, 0xD6F8},
     {gBattleAnimSpritePalette_136, 0xD6F9},
+    {gBattleAnimSpritePalette_136, 0xD6FA},
+    {gBattleAnimSpritePalette_136, 0xD6FB},
+    {gBattleAnimSpritePalette_136, 0xD6FC},
+    {gBattleAnimSpritePalette_136, 0xD6FD},
+    {gBattleAnimSpritePalette_136, 0xD6FE},
+    {gBattleAnimSpritePalette_136, 0xD6FF},
+    {gBattleAnimSpritePalette_136, 0xD700},
+    {gBattleAnimSpritePalette_136, 0xD701},
+    {gBattleAnimSpritePalette_136, 0xD702},
+    {gBattleAnimSpritePalette_136, 0xD703},
 };
 
 const union AnimCmd gUnknown_085E5154[] =
@@ -207,6 +227,15 @@ const u8 gBallOpenParticleAnimNums[] =
     4,
     3,
     5,
+    3,
+    5,
+    2,
+    4,
+    0,
+    1,
+    3,
+    2,
+    4,
 };
 
 const TaskFunc gBallOpenParticleAnimationFuncs[] =
@@ -225,6 +254,16 @@ const TaskFunc gBallOpenParticleAnimationFuncs[] =
     PremierBallOpenParticleAnimation,
     UltraBallOpenParticleAnimation,
     GreatBallOpenParticleAnimation,
+    RepeatBallOpenParticleAnimation,
+    TimerBallOpenParticleAnimation,
+    DiveBallOpenParticleAnimation,
+    PokeBallOpenParticleAnimation,
+    UltraBallOpenParticleAnimation,
+    SafariBallOpenParticleAnimation,
+    MasterBallOpenParticleAnimation,
+    UltraBallOpenParticleAnimation,
+    PokeBallOpenParticleAnimation,
+
 };
 
 const struct SpriteTemplate gUnknown_085E51F0[] =
@@ -355,6 +394,87 @@ const struct SpriteTemplate gUnknown_085E51F0[] =
         .affineAnims = gDummySpriteAffineAnimTable,
         .callback = SpriteCallbackDummy,
     },
+    {
+        .tileTag = 55034,
+        .paletteTag = 55034,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55035,
+        .paletteTag = 55035,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55036,
+        .paletteTag = 55036,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55037,
+        .paletteTag = 55037,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55038,
+        .paletteTag = 55038,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55039,
+        .paletteTag = 55039,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55040,
+        .paletteTag = 55040,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55041,
+        .paletteTag = 55041,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
+    {
+        .tileTag = 55042,
+        .paletteTag = 55042,
+        .oam = &gUnknown_08524904,
+        .anims = gUnknown_085E519C,
+        .images = NULL,
+        .affineAnims = gDummySpriteAffineAnimTable,
+        .callback = SpriteCallbackDummy,
+    },
 };
 
 // Color blended with Mon released
@@ -374,6 +494,15 @@ const u16 gUnknown_085E5310[] =
     RGB(31, 9, 10),
     RGB(31, 15 , 8),
     RGB(39, 10 , 5),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),    
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
+    RGB(31, 22, 30),
     RGB(0, 0, 0),
     RGB(1, 16, 0),
     RGB(3, 0, 1),
@@ -740,7 +869,25 @@ u8 ItemIdToBallId(u16 ballItem)
     case ITEM_CHERISH_BALL:
         return 12;
     case ITEM_DUSK_BALL:
-        return 13;            
+        return 13;
+    case ITEM_LEVEL_BALL:
+        return 14;
+    case ITEM_LURE_BALL:
+        return 15;
+    case ITEM_HEAL_BALL:
+        return 16;
+    case ITEM_MOON_BALL:
+        return 17;
+    case ITEM_FAST_BALL:
+        return 18;
+    case ITEM_QUICK_BALL:
+        return 19;
+    case ITEM_HEAVY_BALL:
+        return 20;
+    case ITEM_LOVE_BALL:
+        return 21;
+    case ITEM_FRIEND_BALL:
+        return 22;                                                
     case ITEM_POKE_BALL:
         return 0;
     default:

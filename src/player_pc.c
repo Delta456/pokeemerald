@@ -172,6 +172,15 @@ static const struct ItemSlot gNewGamePCItems[] =
     { ITEM_POKE_BALL, 1 },    
     { ITEM_CHERISH_BALL, 1 },
     { ITEM_DUSK_BALL, 1 },
+    { ITEM_HEAVY_BALL, 1 },
+    { ITEM_FRIEND_BALL, 1 },
+    { ITEM_FAST_BALL, 1 },
+    { ITEM_QUICK_BALL, 1 },
+    { ITEM_LEVEL_BALL, 1 },
+    { ITEM_LURE_BALL, 1 },
+    { ITEM_MOON_BALL, 1 },
+    { ITEM_HEAL_BALL, 1 },
+    { ITEM_LOVE_BALL, 1 },
     { ITEM_NONE, 0 }
 };
 
